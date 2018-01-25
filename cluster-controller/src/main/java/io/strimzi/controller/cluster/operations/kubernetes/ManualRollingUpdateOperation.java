@@ -76,7 +76,7 @@ public class ManualRollingUpdateOperation extends K8sOperation {
         );
     }
 
-    class RollingUpdateWatcher<T> implements Watcher<T> {
+    static class RollingUpdateWatcher<T> implements Watcher<T> {
         //private static final Logger log = LoggerFactory.getLogger(RollingUpdateWatcher.class.getName());
         private final Future deleted;
 

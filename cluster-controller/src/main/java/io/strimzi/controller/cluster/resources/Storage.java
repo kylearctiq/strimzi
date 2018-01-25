@@ -227,7 +227,7 @@ public class Storage {
     /**
      * Result after comparing two Storage instances
      */
-    public class StorageDiffResult {
+    public static class StorageDiffResult {
 
         private boolean isType;
         private boolean isSize;
