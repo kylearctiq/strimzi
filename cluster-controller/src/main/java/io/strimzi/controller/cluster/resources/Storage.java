@@ -6,6 +6,7 @@ import io.fabric8.kubernetes.api.model.PersistentVolumeClaim;
 import io.fabric8.kubernetes.api.model.Quantity;
 import io.vertx.core.json.JsonObject;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -121,7 +122,7 @@ public class Storage {
                             .collect(Collectors.toMap(Map.Entry::getKey, e -> String.valueOf(e.getValue())));
 
             // match-expressions doesn't supported yet
-            List<LabelSelectorRequirement> matchExpressions = null;
+            List<LabelSelectorRequirement> matchExpressions = Collections.emptyList();
 
             storage.withSelector(new LabelSelector(matchExpressions, matchLabels));
         }
