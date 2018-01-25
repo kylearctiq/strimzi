@@ -168,7 +168,7 @@ public class ClusterController extends AbstractVerticle {
                                 log.error("Watcher closed with exception", e);
                             }
                             else {
-                                log.error("Watcher closed with exception", e);
+                                log.error("Watcher closed");
                             }
 
                             recreateConfigMapWatch();
