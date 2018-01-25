@@ -4,7 +4,7 @@ public abstract class ClusterOperation implements Operation {
     protected final String namespace;
     protected final String name;
 
-    protected final int LOCK_TIMEOUT = 60000;
+    protected static final int LOCK_TIMEOUT = 60_000;
 
     protected ClusterOperation(String namespace, String name) {
         this.namespace = namespace;
