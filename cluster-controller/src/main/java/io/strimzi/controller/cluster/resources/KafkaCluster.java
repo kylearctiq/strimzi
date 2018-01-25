@@ -17,7 +17,7 @@ public class KafkaCluster extends AbstractCluster {
 
     public static final String TYPE = "kafka";
 
-    private final int clientPort = 9092;
+    private static final int CLIENT_PORT = 9092;
     private final String clientPortName = "clients";
 
     private static String NAME_SUFFIX = "-kafka";
@@ -269,13 +269,13 @@ public class KafkaCluster extends AbstractCluster {
     public Service generateService() {
 
         return createService("ClusterIP",
-                Collections.singletonList(createServicePort(clientPortName, clientPort, clientPort, "TCP")));
+                Collections.singletonList(createServicePort(clientPortName, CLIENT_PORT, CLIENT_PORT, "TCP")));
     }
 
     public Service generateHeadlessService() {
 
         return createHeadlessService(headlessName,
-                Collections.singletonList(createServicePort(clientPortName, clientPort, clientPort, "TCP")));
+                Collections.singletonList(createServicePort(clientPortName, CLIENT_PORT, CLIENT_PORT, "TCP")));
     }
 
     public Service patchHeadlessService(Service svc) {
@@ -325,7 +325,7 @@ public class KafkaCluster extends AbstractCluster {
 
     private List<ContainerPort> getContainerPortList() {
         List<ContainerPort> portList = new ArrayList<>();
-        portList.add(createContainerPort(clientPortName, clientPort, "TCP"));
+        portList.add(createContainerPort(clientPortName, CLIENT_PORT, "TCP"));
         if (isMetricsEnabled) {
             portList.add(createContainerPort(metricsPortName, metricsPort, "TCP"));
         }
