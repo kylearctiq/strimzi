@@ -36,17 +36,10 @@ public class OperationExecutor {
         op.execute(vertx, k8s, handler);
     }
 
-    private Vertx getVertx() {
-        return vertx;
-    }
-
     private void setVertx(Vertx vertx) {
         this.vertx = vertx;
     }
 
-    private K8SUtils getK8s() {
-        return k8s;
-    }
 
     private void setK8s(K8SUtils k8s) {
         this.k8s = k8s;
