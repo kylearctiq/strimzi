@@ -11,8 +11,8 @@ public class OperationExecutor {
     private Vertx vertx;
     private K8SUtils k8s;
 
-    public static OperationExecutor getInstance(Vertx vertx, K8SUtils k8s) {
-        if(instance == null) {
+    public static synchronized OperationExecutor getInstance(Vertx vertx, K8SUtils k8s) {
+        if (instance == null) {
             instance = new OperationExecutor(vertx, k8s);
         }
         else {
